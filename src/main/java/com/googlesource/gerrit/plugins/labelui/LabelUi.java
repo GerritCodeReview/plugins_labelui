@@ -15,5 +15,5 @@
 package com.googlesource.gerrit.plugins.labelui;
 
 public enum LabelUi {
-  DEFAULT, USER_LABEL_TABLE
+  DEFAULT, LABEL_USER_TABLE, USER_LABEL_TABLE
 }

@@ -67,6 +67,9 @@ public class LabelPanel extends VerticalPanel {
             ChangeInfo change =
                 panel.getObject(GerritUiExtensionPoint.Key.CHANGE_INFO).cast();
             switch (result.ui()) {
+              case LABEL_USER_TABLE:
+                displayLabelUserTable(change);
+                break;
               case USER_LABEL_TABLE:
                 displayUserLabelTable(change);
                 break;
@@ -81,6 +84,39 @@ public class LabelPanel extends VerticalPanel {
             // never invoked
           }
         });
+  }
+
+  private void displayLabelUserTable(ChangeInfo change) {
+    Set<String> labelNames = getLabelNames(change);
+    Map<String, AccountInfo> users = getUserMap(labelNames, change);
+    Map<Integer, VotableInfo> votable = votable(change);
+    Grid g = createGrid(labelNames.size() + 1, users.size() + 1);
+
+    int i = 1;
+    for (AccountInfo account : users.values()) {
+      g.setWidget(0, i, createUserWidget(account));
+      i++;
+    }
+
+    i = 1;
+    for (String labelName : labelNames) {
+      g.setWidget(i, 0, createLabelLabel(change.label(labelName)));
+
+      int j = 1;
+      for (AccountInfo account : users.values()) {
+        LabelInfo label = change.label(labelName);
+        ApprovalInfo ai = label.forUser(account._accountId());
+        g.setWidget(i, j, createLabelValueWidget(label, ai));
+
+        if (!votable.get(account._accountId()).isVotable(labelName)) {
+          formatNonVotable(g, i, j);
+        }
+        j++;
+      }
+      i++;
+    }
+
+    add(g);
   }
 
   private void displayUserLabelTable(ChangeInfo change) {

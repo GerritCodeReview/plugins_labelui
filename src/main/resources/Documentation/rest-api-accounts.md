@@ -68,7 +68,7 @@ plugin.
 
 * _ui_: The control that should be displayed on the change screen to
   render the labels/approvals. Possible values are `DEFAULT` and
-  `USER_LABEL_TABLE`.
+  `LABEL_USER_TABLE`, `USER_LABEL_TABLE`.
 
 SEE ALSO
 --------

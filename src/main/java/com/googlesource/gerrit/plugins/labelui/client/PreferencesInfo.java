@@ -18,7 +18,7 @@ import com.google.gwt.core.client.JavaScriptObject;
 
 public class PreferencesInfo extends JavaScriptObject {
   public static enum LabelUi {
-    DEFAULT, USER_LABEL_TABLE
+    DEFAULT, LABEL_USER_TABLE, USER_LABEL_TABLE
   }
 
   public static PreferencesInfo create() {

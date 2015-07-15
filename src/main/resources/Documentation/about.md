@@ -12,6 +12,13 @@ The Gerrit default control for labels/approvals:
 
 ![DefaultApprovalsScreenshot](images/default-approvals.png)
 
+### `LABEL_USER_TABLE`
+
+Renders the labels/approvals as a table with one row per label and
+users as columns:
+
+![ApprovalTableScreenshot](images/label-user-table.png)
+
 ### `USER_LABEL_TABLE`
 
 Renders the labels/approvals as a table with one row per user and
