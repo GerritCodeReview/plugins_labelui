@@ -26,10 +26,13 @@ import com.google.gerrit.plugin.client.extension.Panel;
 import com.google.gerrit.plugin.client.rpc.RestApi;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
+import com.google.gwt.dom.client.Style.BorderStyle;
 import com.google.gwt.dom.client.Style.Cursor;
 import com.google.gwt.dom.client.Style.Display;
+import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.dom.client.Style.TextAlign;
 import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.dom.client.Style.WhiteSpace;
 import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Grid;
@@ -72,6 +75,9 @@ public class LabelPanel extends VerticalPanel {
                 break;
               case USER_LABEL_TABLE:
                 displayUserLabelTable(change);
+                break;
+              case SHOW_REVIEWERS_WITHOUT_VOTES:
+                displayReviewersWithoutVotes(change);
                 break;
               case DEFAULT:
               default:
@@ -150,6 +156,66 @@ public class LabelPanel extends VerticalPanel {
     }
 
     add(g);
+  }
+
+  private void displayReviewersWithoutVotes(ChangeInfo change) {
+    Set<String> labelNames = getLabelNames(change);
+    Map<String, AccountInfo> users = getUserMap(labelNames, change);
+    HorizontalPanel p = new HorizontalPanel();
+    Style s = getElement().getStyle();
+    s.setPosition(Position.RELATIVE);
+    s.setTop(-5, Unit.PX);
+    s.setLeft(2, Unit.PX);
+    Label l = new Label("No Vote");
+    s = l.getElement().getStyle();
+    s.setPaddingTop(4, Unit.PX);
+    s.setPaddingRight(35, Unit.PX);
+    p.add(l);
+    add(p);
+
+    for (AccountInfo account : users.values()) {
+      boolean hasVote = false;
+      for (String labelName : labelNames) {
+        LabelInfo label = change.label(labelName);
+        ApprovalInfo ai = label.forUser(account._accountId());
+        if (ai.hasValue() && ai.value() != 0) {
+          hasVote = true;
+          break;
+        }
+      }
+      if (!hasVote) {
+        p.add(createUserToken(account));
+      }
+    }
+  }
+
+  private static Widget createUserToken(AccountInfo account) {
+    HorizontalPanel p = new HorizontalPanel();
+
+    Style s = p.getElement().getStyle();
+    s.setMarginLeft(3, Unit.PX);
+    s.setDisplay(Display.INLINE_BLOCK);
+    s.setPaddingTop(1, Unit.PX);
+    s.setPaddingRight(3, Unit.PX);
+    s.setPaddingLeft(3, Unit.PX);
+    s.setPaddingBottom(0, Unit.PX);
+    s.setProperty("border-radius", "5px");
+    s.setProperty("background", "#EEE none repeat scroll 0% 0%");
+    s.setBorderWidth(1, Unit.PX);
+    s.setBorderStyle(BorderStyle.SOLID);
+    s.setBorderColor("#EEE");
+    s.setWhiteSpace(WhiteSpace.NOWRAP);
+
+    if (account.hasAvatarInfo()) {
+      p.add(createAvatar(account));
+    }
+    Label l = new Label(account.name());
+    s = l.getElement().getStyle();
+    s.setPaddingTop(3, Unit.PX);
+    s.setPaddingLeft(2, Unit.PX);
+    p.add(l);
+
+    return p;
   }
 
   private static Grid createGrid(int rows, int columns) {
