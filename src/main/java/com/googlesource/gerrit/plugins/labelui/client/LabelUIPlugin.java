@@ -45,7 +45,7 @@ public class LabelUIPlugin extends PluginEntryPoint {
   }
 
   public static void refreshDefaultLabelUi(LabelUi ui) {
-    if (ui == LabelUi.DEFAULT) {
+    if (ui == LabelUi.DEFAULT || ui == LabelUi.SHOW_REVIEWERS_WITHOUT_VOTES) {
       showDefaultLabelUi();
     } else {
       hideDefaultLabelUi();
