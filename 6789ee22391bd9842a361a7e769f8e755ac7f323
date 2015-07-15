@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "b84256dc_9dbd0306",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/labelui/client/LabelPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-15T09:21:56Z",
+      "side": 1,
+      "message": "Yes, I\u0027m very amazed about this. It makes writing plugins so much easier :-)",
+      "parentUuid": "784c5e14_9bbd0b06",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "6789ee22391bd9842a361a7e769f8e755ac7f323",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b84256dc_fdb8c716",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/labelui/client/LabelPanel.java",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-15T09:16:00Z",
       "side": 1,
       "message": "Now we can just \"borrow\" response to GET /changes/\u003cid\u003e/details from Gerrit core, instead of re-issuing this (and other) request second time from the plugin. How cool ist that? ;-)",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 79
+      },
+      "revId": "6789ee22391bd9842a361a7e769f8e755ac7f323",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "784c5e14_5bc8e397",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/labelui/client/LabelPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-15T09:21:56Z",
+      "side": 1,
+      "message": "Indeed, it would have been quite stupid if it would have been needed to do the same request again...\n\nI\u0027m happy that this works now :-)",
+      "parentUuid": "b84256dc_fdb8c716",
       "range": {
         "startLine": 66,
         "startChar": 12,
