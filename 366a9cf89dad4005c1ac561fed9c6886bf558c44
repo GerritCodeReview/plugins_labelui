@@ -16,6 +16,24 @@
       "revId": "366a9cf89dad4005c1ac561fed9c6886bf558c44",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b84256dc_7dc5977e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-15T12:00:03Z",
+      "side": 1,
+      "message": "Maybe this is a good motivation to start supporting GWT plugins on *.googlesource.com? ;-)\n\n \u003e This rises the question. if this cool feature should be \n \u003e a part of the Gerrit core instead.\n\nIf someone from Google wants to have this functionality in Gerrit core, I can easliy rework it and push it as Gerrit core change.\n\nHowever in the long run I think it\u0027s cool if we can have more plugins which provide alternative UI controls without need to add them all in Gerrit core.",
+      "parentUuid": "b84256dc_bdc23f79",
+      "revId": "366a9cf89dad4005c1ac561fed9c6886bf558c44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
