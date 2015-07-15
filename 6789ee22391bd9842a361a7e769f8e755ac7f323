@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "784c5e14_9bbd0b06",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/labelui/client/LabelPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-15T09:16:00Z",
+      "side": 1,
+      "message": "Now we can just re-use stuff from gwt-ui-common from Gerrit core in GWT plugin. How cool ist that? ;-)",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 22,
+        "endChar": 58
+      },
+      "revId": "6789ee22391bd9842a361a7e769f8e755ac7f323",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b84256dc_fdb8c716",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/labelui/client/LabelPanel.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-15T09:16:00Z",
+      "side": 1,
+      "message": "Now we can just \"borrow\" response to GET /changes/\u003cid\u003e/details from Gerrit core, instead of re-issuing this (and other) request second time from the plugin. How cool ist that? ;-)",
+      "range": {
+        "startLine": 66,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 79
+      },
+      "revId": "6789ee22391bd9842a361a7e769f8e755ac7f323",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
