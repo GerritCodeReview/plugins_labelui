@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b84256dc_bdc23f79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-15T11:35:42Z",
+      "side": 1,
+      "message": "The only problem with this approach is: GWT plugin integration is broken on *.googlesource.com, for all tenants:\n\n* gerrit-review\n* gwt-review\n* go-review\n* [...]\n\nSo that this cool plugin cannot be deployed there. This rises the question. if this cool feature should be a part of the Gerrit core instead.",
+      "revId": "366a9cf89dad4005c1ac561fed9c6886bf558c44",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
