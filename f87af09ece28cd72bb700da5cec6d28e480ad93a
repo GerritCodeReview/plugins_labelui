@@ -46,6 +46,30 @@
       "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "784c5e14_1b1d7b93",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-16T08:28:24Z",
+      "side": 1,
+      "message": "| But it is not something that I would like to implement and maintain\n\nWell, unless you implement it, nobody else would implement it, and even if someone else would implement it, nobody else would review/approve it. IOW you should do it, at least the extension point?\n\n ;-)",
+      "parentUuid": "784c5e14_5b2303e2",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
