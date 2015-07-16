@@ -94,6 +94,30 @@
       "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b84256dc_bd2d5fce",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-16T13:46:12Z",
+      "side": 1,
+      "message": "I have a first running example of a plugin replacing the change screen with a custom screen that is implemented in the plugin and allowing the user to switch bewteen both screens by a user preference [1]. The plugin change is based on [2].\n\n[1] https://gerrit-review.googlesource.com/69640\n[2] https://gerrit-review.googlesource.com/69599",
+      "parentUuid": "b84256dc_fd33e730",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
