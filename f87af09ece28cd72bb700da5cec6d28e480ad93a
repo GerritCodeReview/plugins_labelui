@@ -70,6 +70,30 @@
       "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b84256dc_fd33e730",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-16T08:50:01Z",
+      "side": 1,
+      "message": "\u003e if someone else would implement it, nobody else would \n \u003e review/approve it.\n\nBut the screen itself would be implemented in a plugin and hence it wouldn\u0027t require review/approval from Gerrit committers :-)\n\n \u003e IOW you should do it, at least the extension point?\n\nI\u0027m interested in this extension point, but I must see if/when I can find time for it.",
+      "parentUuid": "784c5e14_1b1d7b93",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
