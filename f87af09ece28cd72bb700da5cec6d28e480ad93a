@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "784c5e14_fb33ef30",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2015-07-16T07:32:39Z",
+      "side": 1,
+      "message": "I can confirm, that folks is missing labels/approvals from old change screen? Moreover folks is also missing the old change screen. Now that we expose Everything from reviewdb-client and *Info classes from gerrit-gwtui I got a crazy idea:\n\nExpose ChangeScreenExtensionPoint as dedicated extension point and allow plugin to hijack the change screen as whole. With this extension point, a plugin can add ChangeScreenType back and offer DEFAULT, LEGACY implementation and restore the old change screen code incarnation (or re-implement it from scratch) and provide:\n\n  gerrit-legacy-change-screen-plugin",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
