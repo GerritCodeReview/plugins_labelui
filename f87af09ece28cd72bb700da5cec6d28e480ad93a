@@ -22,6 +22,30 @@
       "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "784c5e14_5b2303e2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1003935
+      },
+      "writtenOn": "2015-07-16T08:21:38Z",
+      "side": 1,
+      "message": "\u003e Expose ChangeScreenExtensionPoint as dedicated extension \n \u003e point and allow plugin to hijack the change screen as \n \u003e whole.\n\nI think it would be great if plugins could replace whole Gerrit core screens and provide alternate screens instead. \n\nI guess we still need some logic to register and load a plugin screen as replacement for a core screen.\n\n \u003e With this extension point, a plugin can add \n \u003e ChangeScreenType back and offer DEFAULT, LEGACY \n \u003e implementation and restore the old change screen code \n \u003e incarnation (or re-implement it from scratch)\n\nYes, this would be the natural choice for a first usage of this new extension point and I guess some people would be happy about it. But it is not something that I would like to implement and maintain since I\u0027m quite happy with the new change screen. Still I think it would be nice to have.",
+      "parentUuid": "784c5e14_fb33ef30",
+      "range": {
+        "startLine": 9,
+        "startChar": 61,
+        "endLine": 10,
+        "endChar": 62
+      },
+      "revId": "f87af09ece28cd72bb700da5cec6d28e480ad93a",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
