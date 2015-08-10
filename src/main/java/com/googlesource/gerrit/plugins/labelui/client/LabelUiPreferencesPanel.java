@@ -20,6 +20,7 @@ import com.google.gerrit.plugin.client.rpc.RestApi;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
@@ -33,6 +34,9 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
       panel.setWidget(new LabelUiPreferencesPanel());
     }
   }
+
+  private Label savedLabel;
+  private Timer hideTimer;
 
   LabelUiPreferencesPanel() {
     new RestApi("accounts").id("self")
@@ -63,6 +67,11 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
     label.getElement().getStyle().setMarginTop(2, Unit.PX);
     final ListBox ui = new ListBox();
     p.add(ui);
+    savedLabel = new Label("Saved");
+    savedLabel.getElement().getStyle().setMarginLeft(5, Unit.PX);
+    savedLabel.getElement().getStyle().setMarginTop(2, Unit.PX);
+    savedLabel.setVisible(false);
+    p.add(savedLabel);
 
     for (PreferencesInfo.LabelUi v : PreferencesInfo.LabelUi.values()) {
       ui.addItem(v.name(), v.name());
@@ -78,6 +87,7 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
     ui.addChangeHandler(new ChangeHandler() {
       @Override
       public void onChange(ChangeEvent event) {
+        savedLabel.setVisible(false);
         PreferencesInfo info = PreferencesInfo.create();
         info.ui(ui.getSelectedValue());
         new RestApi("accounts").id("self")
@@ -85,6 +95,7 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
             .put(info, new AsyncCallback<PreferencesInfo>() {
               @Override
               public void onSuccess(PreferencesInfo result) {
+                showSavedStatus();
               }
 
               @Override
@@ -94,5 +105,21 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
             });
       }
     });
+  }
+
+  private void showSavedStatus() {
+    if (hideTimer != null) {
+      hideTimer.cancel();
+      hideTimer = null;
+    }
+    savedLabel.setVisible(true);
+    hideTimer = new Timer() {
+      @Override
+      public void run() {
+        savedLabel.setVisible(false);
+        hideTimer = null;
+      }
+    };
+    hideTimer.schedule(1000);
   }
 }
