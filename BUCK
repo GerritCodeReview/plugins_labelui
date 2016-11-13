@@ -8,7 +8,7 @@ gerrit_plugin(
   manifest_entries = [
     'Gerrit-PluginName: labelui',
     'Gerrit-ApiType: plugin',
-    'Gerrit-ApiVersion: 2.12-SNAPSHOT',
+    'Gerrit-ApiVersion: 2.13.3',
     'Gerrit-Module: com.googlesource.gerrit.plugins.labelui.Module',
     'Gerrit-HttpModule: com.googlesource.gerrit.plugins.labelui.HttpModule',
   ],
