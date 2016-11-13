@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3026c8ad_56e5b4bf",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2016-11-13T23:36:58Z",
+      "side": 1,
+      "message": "Thanks, Done.",
+      "parentUuid": "0b70b387_f7b2da9b",
+      "range": {
+        "startLine": 8,
+        "startChar": 10,
+        "endLine": 8,
+        "endChar": 50
+      },
+      "revId": "4c4bd39da8ed2222653f1fc52b8aead51a2bbb33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b70b387_17b83679",
         "filename": "lib/gerrit/BUCK",
         "patchSetId": 6
@@ -36,6 +60,30 @@
       "writtenOn": "2016-11-13T23:33:56Z",
       "side": 1,
       "message": "0ae509d4f157b7352690da489436c34e3ca262d6",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "4c4bd39da8ed2222653f1fc52b8aead51a2bbb33",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d0748cbf_33c82843",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2016-11-13T23:36:58Z",
+      "side": 1,
+      "message": "Thanks, Done.",
+      "parentUuid": "0b70b387_17b83679",
       "range": {
         "startLine": 18,
         "startChar": 10,
