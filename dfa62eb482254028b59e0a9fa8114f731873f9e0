@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb6c3fba_b644e690",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-11-13T23:00:10Z",
+      "side": 1,
+      "message": "MAVEN_CENTRAL",
+      "range": {
+        "startLine": 4,
+        "startChar": 7,
+        "endLine": 4,
+        "endChar": 18
+      },
+      "revId": "dfa62eb482254028b59e0a9fa8114f731873f9e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b70b387_374b72cd",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-11-13T23:00:10Z",
+      "side": 1,
+      "message": "sha1 should be added here",
+      "revId": "dfa62eb482254028b59e0a9fa8114f731873f9e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b70b387_5758ee9b",
+        "filename": "lib/gerrit/BUCK",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2016-11-13T23:00:10Z",
+      "side": 1,
+      "message": "sha1 should be added here",
+      "revId": "dfa62eb482254028b59e0a9fa8114f731873f9e0",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
