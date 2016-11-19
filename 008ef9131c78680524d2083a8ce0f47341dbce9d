@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b0847825_2a49dfd1",
+        "filename": "lib/gwt/BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "2016-11-19T16:59:07Z",
+      "side": 1,
+      "message": "Why is this needed?",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "008ef9131c78680524d2083a8ce0f47341dbce9d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
