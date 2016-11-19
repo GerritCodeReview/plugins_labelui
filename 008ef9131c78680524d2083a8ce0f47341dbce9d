@@ -22,6 +22,30 @@
       "revId": "008ef9131c78680524d2083a8ce0f47341dbce9d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b0847825_6a43d7af",
+        "filename": "lib/gwt/BUCK",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2016-11-19T17:48:39Z",
+      "side": 1,
+      "message": "Oh not sure, i can removed it.",
+      "parentUuid": "b0847825_2a49dfd1",
+      "range": {
+        "startLine": 32,
+        "startChar": 10,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "008ef9131c78680524d2083a8ce0f47341dbce9d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
