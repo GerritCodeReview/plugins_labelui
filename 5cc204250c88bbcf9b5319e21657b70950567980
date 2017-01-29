@@ -1,0 +1,135 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e697e4ea_ccc7a239",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Same comment as in its-bugzilla plugin.",
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8950ea83_12f860b9",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Remove this. It\u0027s unused in this file.",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 5,
+        "endChar": 23
+      },
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6bd55b7c_fe972090",
+        "filename": "BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Remove this. It\u0027s unused in Bazel build.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9e243569_6b17a703",
+        "filename": "external_plugin_deps.bzl",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Remove this file entirely. GWT dependencies are provided in Gerrit tree build mode by gerrit_plugin() Bazel rule.",
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a28fdb7_a26bf0c6",
+        "filename": "lib/gwt/BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Remove this file entirely. GWT dependencies are provided in Gerrit tree build mode by gerrit_plugin() Bazel rule.",
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d421bde_e5b41bc3",
+        "filename": "lib/ow2/BUILD",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Remove this file entirely. GWT dependencies are provided in Gerrit tree build mode by gerrit_plugin() Bazel rule.",
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "62d16dcc_21894d46",
+        "filename": "src/main/resources/Documentation/build.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1011323
+      },
+      "writtenOn": "Jan 29, 2017 8:34:06 AM",
+      "side": 1,
+      "message": "Same comment as in its-buzilla plugin.",
+      "revId": "5cc204250c88bbcf9b5319e21657b70950567980",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
