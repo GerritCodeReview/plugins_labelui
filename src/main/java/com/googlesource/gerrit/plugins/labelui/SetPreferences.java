@@ -22,6 +22,9 @@ import com.google.gerrit.server.account.AccountResource;
 import com.google.gerrit.server.account.VersionedAccountPreferences;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.MetaDataUpdate;
+import com.google.gerrit.server.permissions.GlobalPermission;
+import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
@@ -42,25 +45,27 @@ public class SetPreferences implements RestModifyView<AccountResource, Input> {
   private final Provider<CurrentUser> self;
   private final AllUsersName allUsersName;
   private final Provider<MetaDataUpdate.User> metaDataUpdateFactory;
+  private final PermissionBackend permissionBackend;
 
   @Inject
   public SetPreferences(@PluginName String pluginName,
       Provider<CurrentUser> self,
       AllUsersName allUsersName,
-      Provider<MetaDataUpdate.User> metaDataUpdateFactory) {
+      Provider<MetaDataUpdate.User> metaDataUpdateFactory,
+      PermissionBackend permissionBackend) {
     this.pluginName = pluginName;
     this.self = self;
     this.allUsersName = allUsersName;
     this.metaDataUpdateFactory = metaDataUpdateFactory;
+    this.permissionBackend = permissionBackend;
   }
 
   @Override
   public GetPreferences.PreferencesInfo apply(AccountResource rsrc, Input input)
       throws AuthException, RepositoryNotFoundException, IOException,
-      ConfigInvalidException {
-    if (self.get() != rsrc.getUser()
-        && !self.get().getCapabilities().canModifyAccount()) {
-      throw new AuthException("not allowed to set preferences");
+      ConfigInvalidException, PermissionBackendException {
+    if (self.get() != rsrc.getUser()) {
+      permissionBackend.user(self).check(GlobalPermission.MODIFY_ACCOUNT);
     }
 
     if (input == null) {

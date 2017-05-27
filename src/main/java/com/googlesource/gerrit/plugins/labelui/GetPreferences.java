@@ -23,6 +23,9 @@ import com.google.gerrit.server.account.AccountResource;
 import com.google.gerrit.server.account.VersionedAccountPreferences;
 import com.google.gerrit.server.config.AllUsersName;
 import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.permissions.GlobalPermission;
+import com.google.gerrit.server.permissions.PermissionBackend;
+import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
@@ -38,24 +41,26 @@ public class GetPreferences implements RestReadView<AccountResource> {
   private final Provider<CurrentUser> self;
   private final AllUsersName allUsersName;
   private final GitRepositoryManager gitMgr;
+  private final PermissionBackend permissionBackend;
 
   @Inject
   public GetPreferences(@PluginName String pluginName,
       Provider<CurrentUser> self,
       AllUsersName allUsersName,
-      GitRepositoryManager gitMgr) {
+      GitRepositoryManager gitMgr,
+      PermissionBackend permissionBackend) {
     this.pluginName = pluginName;
     this.self = self;
     this.allUsersName = allUsersName;
     this.gitMgr = gitMgr;
+    this.permissionBackend = permissionBackend;
   }
 
   @Override
   public PreferencesInfo apply(AccountResource rsrc) throws AuthException,
-      ResourceNotFoundException, IOException, ConfigInvalidException {
-    if (self.get() != rsrc.getUser()
-        && !self.get().getCapabilities().canModifyAccount()) {
-      throw new AuthException("not allowed to get preferences");
+      ResourceNotFoundException, IOException, ConfigInvalidException, PermissionBackendException {
+    if (self.get() != rsrc.getUser()) {
+      permissionBackend.user(self).check(GlobalPermission.MODIFY_ACCOUNT);
     }
 
     try (Repository git = gitMgr.openRepository(allUsersName)) {
