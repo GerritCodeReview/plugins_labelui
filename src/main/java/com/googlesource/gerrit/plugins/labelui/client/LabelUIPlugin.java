@@ -38,10 +38,10 @@ public class LabelUIPlugin extends PluginEntryPoint {
 
     Plugin.get().panel(
         GerritUiExtensionPoint.CHANGE_SCREEN_BELOW_CHANGE_INFO_BLOCK,
-        new LabelPanel.Factory());
+        new LabelPanel.Factory(), null);
     Plugin.get().panel(
         GerritUiExtensionPoint.PREFERENCES_SCREEN_BOTTOM,
-        new LabelUiPreferencesPanel.Factory());
+        new LabelUiPreferencesPanel.Factory(), null);
   }
 
   public static void refreshDefaultLabelUi(LabelUi ui) {
