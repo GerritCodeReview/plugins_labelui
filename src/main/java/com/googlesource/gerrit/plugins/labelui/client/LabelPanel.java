@@ -183,7 +183,7 @@ public class LabelPanel extends VerticalPanel {
   }
 
   private static Set<String> getLabelNames(ChangeInfo change) {
-    return new TreeSet<String>(change.labels());
+    return new TreeSet<>(change.labels());
   }
 
   private static Map<String, AccountInfo> getUserMap(Set<String> labelNames,
