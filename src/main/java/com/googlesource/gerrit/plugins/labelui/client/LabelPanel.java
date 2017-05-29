@@ -39,7 +39,6 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -55,35 +54,37 @@ public class LabelPanel extends VerticalPanel {
     }
   }
 
-  private final static String COLOR_GREEN = "#060";
-  private final static String COLOR_RED = "#F00";
+  private static final String COLOR_GREEN = "#060";
+  private static final String COLOR_RED = "#F00";
 
   LabelPanel(final Panel panel) {
-    new RestApi("accounts").id("self").view(Plugin.get().getPluginName(), "preferences")
-        .get(new AsyncCallback<PreferencesInfo>() {
-          @Override
-          public void onSuccess(PreferencesInfo result) {
-            LabelUIPlugin.refreshDefaultLabelUi(result.ui());
-            ChangeInfo change =
-                panel.getObject(GerritUiExtensionPoint.Key.CHANGE_INFO).cast();
-            switch (result.ui()) {
-              case LABEL_USER_TABLE:
-                displayLabelUserTable(change);
-                break;
-              case USER_LABEL_TABLE:
-                displayUserLabelTable(change);
-                break;
-              case DEFAULT:
-              default:
-                return;
-            }
-          }
+    new RestApi("accounts")
+        .id("self")
+        .view(Plugin.get().getPluginName(), "preferences")
+        .get(
+            new AsyncCallback<PreferencesInfo>() {
+              @Override
+              public void onSuccess(PreferencesInfo result) {
+                LabelUIPlugin.refreshDefaultLabelUi(result.ui());
+                ChangeInfo change = panel.getObject(GerritUiExtensionPoint.Key.CHANGE_INFO).cast();
+                switch (result.ui()) {
+                  case LABEL_USER_TABLE:
+                    displayLabelUserTable(change);
+                    break;
+                  case USER_LABEL_TABLE:
+                    displayUserLabelTable(change);
+                    break;
+                  case DEFAULT:
+                  default:
+                    return;
+                }
+              }
 
-          @Override
-          public void onFailure(Throwable caught) {
-            // never invoked
-          }
-        });
+              @Override
+              public void onFailure(Throwable caught) {
+                // never invoked
+              }
+            });
   }
 
   private void displayLabelUserTable(ChangeInfo change) {
@@ -186,8 +187,7 @@ public class LabelPanel extends VerticalPanel {
     return new TreeSet<>(change.labels());
   }
 
-  private static Map<String, AccountInfo> getUserMap(Set<String> labelNames,
-      ChangeInfo change) {
+  private static Map<String, AccountInfo> getUserMap(Set<String> labelNames, ChangeInfo change) {
     Map<String, AccountInfo> users = new TreeMap<>();
     for (String labelName : labelNames) {
       LabelInfo label = change.label(labelName);
@@ -202,11 +202,9 @@ public class LabelPanel extends VerticalPanel {
     int accountId = ai._accountId();
     String formattedValue = formatValue(ai.value());
     String valueText = label.valueText(formattedValue);
-    if (label.approved() != null
-        && label.approved()._accountId() == accountId) {
+    if (label.approved() != null && label.approved()._accountId() == accountId) {
       return createImage(LabelUIPlugin.RESOURCES.greenCheck(), valueText);
-    } else if (label.rejected() != null
-        && label.rejected()._accountId() == accountId) {
+    } else if (label.rejected() != null && label.rejected()._accountId() == accountId) {
       return createImage(LabelUIPlugin.RESOURCES.redNot(), valueText);
     } else {
       return createValueLabel(formattedValue, valueText, ai.value());
@@ -250,8 +248,7 @@ public class LabelPanel extends VerticalPanel {
     String url;
     if (avatar == null) {
       RestApi api =
-          new RestApi("/accounts/").id(account._accountId()).view("avatar")
-              .addParameter("s", size);
+          new RestApi("/accounts/").id(account._accountId()).view("avatar").addParameter("s", size);
       url = GWT.getHostPageBaseURL() + api.path().substring(1);
     } else {
       url = avatar.url();
@@ -282,7 +279,7 @@ public class LabelPanel extends VerticalPanel {
   }
 
   private static void center(Image image) {
-    Style s =  image.getElement().getStyle();
+    Style s = image.getElement().getStyle();
     s.setProperty("margin-left", "auto");
     s.setProperty("margin-right", "auto");
     s.setDisplay(Display.BLOCK);
@@ -293,7 +290,7 @@ public class LabelPanel extends VerticalPanel {
     if (valueText != null) {
       l.setTitle(valueText);
     }
-    Style s =  l.getElement().getStyle();
+    Style s = l.getElement().getStyle();
     s.setTextAlign(TextAlign.CENTER);
     s.setCursor(Cursor.DEFAULT);
     if (value > 0) {

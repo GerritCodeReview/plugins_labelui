@@ -39,19 +39,21 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
   private Timer hideTimer;
 
   LabelUiPreferencesPanel() {
-    new RestApi("accounts").id("self")
+    new RestApi("accounts")
+        .id("self")
         .view(Plugin.get().getPluginName(), "preferences")
-        .get(new AsyncCallback<PreferencesInfo>() {
-          @Override
-          public void onSuccess(PreferencesInfo result) {
-            display(result);
-          }
+        .get(
+            new AsyncCallback<PreferencesInfo>() {
+              @Override
+              public void onSuccess(PreferencesInfo result) {
+                display(result);
+              }
 
-          @Override
-          public void onFailure(Throwable caught) {
-            // never invoked
-          }
-        });
+              @Override
+              public void onFailure(Throwable caught) {
+                // never invoked
+              }
+            });
   }
 
   private void display(PreferencesInfo info) {
@@ -84,27 +86,31 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
       }
     }
 
-    ui.addChangeHandler(new ChangeHandler() {
-      @Override
-      public void onChange(ChangeEvent event) {
-        savedLabel.setVisible(false);
-        PreferencesInfo info = PreferencesInfo.create();
-        info.ui(ui.getSelectedValue());
-        new RestApi("accounts").id("self")
-            .view(Plugin.get().getPluginName(), "preferences")
-            .put(info, new AsyncCallback<PreferencesInfo>() {
-              @Override
-              public void onSuccess(PreferencesInfo result) {
-                showSavedStatus();
-              }
+    ui.addChangeHandler(
+        new ChangeHandler() {
+          @Override
+          public void onChange(ChangeEvent event) {
+            savedLabel.setVisible(false);
+            PreferencesInfo info = PreferencesInfo.create();
+            info.ui(ui.getSelectedValue());
+            new RestApi("accounts")
+                .id("self")
+                .view(Plugin.get().getPluginName(), "preferences")
+                .put(
+                    info,
+                    new AsyncCallback<PreferencesInfo>() {
+                      @Override
+                      public void onSuccess(PreferencesInfo result) {
+                        showSavedStatus();
+                      }
 
-              @Override
-              public void onFailure(Throwable caught) {
-                // never invoked
-              }
-            });
-      }
-    });
+                      @Override
+                      public void onFailure(Throwable caught) {
+                        // never invoked
+                      }
+                    });
+          }
+        });
   }
 
   private void showSavedStatus() {
@@ -113,13 +119,14 @@ public class LabelUiPreferencesPanel extends VerticalPanel {
       hideTimer = null;
     }
     savedLabel.setVisible(true);
-    hideTimer = new Timer() {
-      @Override
-      public void run() {
-        savedLabel.setVisible(false);
-        hideTimer = null;
-      }
-    };
+    hideTimer =
+        new Timer() {
+          @Override
+          public void run() {
+            savedLabel.setVisible(false);
+            hideTimer = null;
+          }
+        };
     hideTimer.schedule(1000);
   }
 }

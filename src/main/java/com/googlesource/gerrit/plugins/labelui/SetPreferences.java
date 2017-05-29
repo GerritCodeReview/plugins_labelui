@@ -27,14 +27,11 @@ import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-
 import com.googlesource.gerrit.plugins.labelui.GetPreferences.PreferencesInfo;
 import com.googlesource.gerrit.plugins.labelui.SetPreferences.Input;
-
+import java.io.IOException;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.errors.RepositoryNotFoundException;
-
-import java.io.IOException;
 
 public class SetPreferences implements RestModifyView<AccountResource, Input> {
   public static class Input {
@@ -48,7 +45,8 @@ public class SetPreferences implements RestModifyView<AccountResource, Input> {
   private final PermissionBackend permissionBackend;
 
   @Inject
-  public SetPreferences(@PluginName String pluginName,
+  public SetPreferences(
+      @PluginName String pluginName,
       Provider<CurrentUser> self,
       AllUsersName allUsersName,
       Provider<MetaDataUpdate.User> metaDataUpdateFactory,
@@ -62,8 +60,8 @@ public class SetPreferences implements RestModifyView<AccountResource, Input> {
 
   @Override
   public GetPreferences.PreferencesInfo apply(AccountResource rsrc, Input input)
-      throws AuthException, RepositoryNotFoundException, IOException,
-      ConfigInvalidException, PermissionBackendException {
+      throws AuthException, RepositoryNotFoundException, IOException, ConfigInvalidException,
+          PermissionBackendException {
     if (self.get() != rsrc.getUser()) {
       permissionBackend.user(self).check(GlobalPermission.MODIFY_ACCOUNT);
     }

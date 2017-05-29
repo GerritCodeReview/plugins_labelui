@@ -29,11 +29,9 @@ import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
-
+import java.io.IOException;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.Repository;
-
-import java.io.IOException;
 
 @Singleton
 public class GetPreferences implements RestReadView<AccountResource> {
@@ -44,7 +42,8 @@ public class GetPreferences implements RestReadView<AccountResource> {
   private final PermissionBackend permissionBackend;
 
   @Inject
-  public GetPreferences(@PluginName String pluginName,
+  public GetPreferences(
+      @PluginName String pluginName,
       Provider<CurrentUser> self,
       AllUsersName allUsersName,
       GitRepositoryManager gitMgr,
@@ -57,8 +56,9 @@ public class GetPreferences implements RestReadView<AccountResource> {
   }
 
   @Override
-  public PreferencesInfo apply(AccountResource rsrc) throws AuthException,
-      ResourceNotFoundException, IOException, ConfigInvalidException, PermissionBackendException {
+  public PreferencesInfo apply(AccountResource rsrc)
+      throws AuthException, ResourceNotFoundException, IOException, ConfigInvalidException,
+          PermissionBackendException {
     if (self.get() != rsrc.getUser()) {
       permissionBackend.user(self).check(GlobalPermission.MODIFY_ACCOUNT);
     }
@@ -69,8 +69,7 @@ public class GetPreferences implements RestReadView<AccountResource> {
       p.load(git);
 
       PreferencesInfo info = new PreferencesInfo();
-      info.ui =
-          p.getConfig().getEnum("plugin", pluginName, "ui", LabelUi.DEFAULT);
+      info.ui = p.getConfig().getEnum("plugin", pluginName, "ui", LabelUi.DEFAULT);
       return info;
     }
   }

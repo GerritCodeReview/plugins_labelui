@@ -23,12 +23,13 @@ public class Module extends AbstractModule {
 
   @Override
   protected void configure() {
-    install(new RestApiModule() {
-      @Override
-      protected void configure() {
-        get(ACCOUNT_KIND, "preferences").to(GetPreferences.class);
-        put(ACCOUNT_KIND, "preferences").to(SetPreferences.class);
-      }
-    });
+    install(
+        new RestApiModule() {
+          @Override
+          protected void configure() {
+            get(ACCOUNT_KIND, "preferences").to(GetPreferences.class);
+            put(ACCOUNT_KIND, "preferences").to(SetPreferences.class);
+          }
+        });
   }
 }

@@ -21,27 +21,30 @@ import com.google.gerrit.plugin.client.PluginEntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.RootPanel;
-
 import com.googlesource.gerrit.plugins.labelui.client.PreferencesInfo.LabelUi;
 
 public class LabelUIPlugin extends PluginEntryPoint {
   public static final Resources RESOURCES = GWT.create(Resources.class);
 
-  private final static String DEFAULT_LABELS_CLASS =
+  private static final String DEFAULT_LABELS_CLASS =
       "com-google-gerrit-client-change-ChangeScreen_BinderImpl_GenCss_style-labels";
-  private final static String HIDE_DEFAULT_LABELS_CLASS = Plugin.get()
-      .getName() + "-hideDefaultLabels";
+  private static final String HIDE_DEFAULT_LABELS_CLASS =
+      Plugin.get().getName() + "-hideDefaultLabels";
 
   @Override
   public void onPluginLoad() {
     injectCssToHideDefaultLabels();
 
-    Plugin.get().panel(
-        GerritUiExtensionPoint.CHANGE_SCREEN_BELOW_CHANGE_INFO_BLOCK,
-        new LabelPanel.Factory(), null);
-    Plugin.get().panel(
-        GerritUiExtensionPoint.PREFERENCES_SCREEN_BOTTOM,
-        new LabelUiPreferencesPanel.Factory(), null);
+    Plugin.get()
+        .panel(
+            GerritUiExtensionPoint.CHANGE_SCREEN_BELOW_CHANGE_INFO_BLOCK,
+            new LabelPanel.Factory(),
+            null);
+    Plugin.get()
+        .panel(
+            GerritUiExtensionPoint.PREFERENCES_SCREEN_BOTTOM,
+            new LabelUiPreferencesPanel.Factory(),
+            null);
   }
 
   public static void refreshDefaultLabelUi(LabelUi ui) {
@@ -73,6 +76,6 @@ public class LabelUIPlugin extends PluginEntryPoint {
     injectCss(css.toString());
   }
 
-  private final static native void injectCss(String css)
-  /*-{ return $wnd.Gerrit.injectCss(css) }-*/;
+  private static final native void injectCss(String css)
+      /*-{ return $wnd.Gerrit.injectCss(css) }-*/ ;
 }
