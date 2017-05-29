@@ -77,8 +77,7 @@ public class SetPreferences implements RestModifyView<AccountResource, Input> {
 
     VersionedAccountPreferences p =
         VersionedAccountPreferences.forUser(rsrc.getUser().getAccountId());
-    MetaDataUpdate md = metaDataUpdateFactory.get().create(allUsersName);
-    try {
+    try (MetaDataUpdate md = metaDataUpdateFactory.get().create(allUsersName)) {
       p.load(md);
 
       if (input.ui != LabelUi.DEFAULT) {
@@ -88,8 +87,6 @@ public class SetPreferences implements RestModifyView<AccountResource, Input> {
       }
 
       p.commit(md);
-    } finally {
-      md.close();
     }
 
     PreferencesInfo info = new PreferencesInfo();
