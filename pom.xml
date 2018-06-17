@@ -21,12 +21,13 @@ limitations under the License.
   <groupId>com.googlesource.gerrit.plugins.labelui</groupId>
   <artifactId>labelui</artifactId>
   <packaging>jar</packaging>
-  <version>2.14-SNAPSHOT</version>
+  <version>2.14.8</version>
   <name>labelui</name>
 
   <properties>
     <Gerrit-ApiType>plugin</Gerrit-ApiType>
     <Gerrit-ApiVersion>${project.version}</Gerrit-ApiVersion>
+    <GWT-Version>2.8.2</GWT-Version>
   </properties>
 
   <build>
@@ -71,7 +72,7 @@ limitations under the License.
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
-        <version>2.7.0</version>
+        <version>${GWT-Version}</version>
         <configuration>
           <module>com.googlesource.gerrit.plugins.labelui.LabelUI</module>
           <disableClassMetadata>true</disableClassMetadata>
@@ -107,7 +108,7 @@ limitations under the License.
     <dependency>
       <groupId>com.google.gwt</groupId>
       <artifactId>gwt-user</artifactId>
-      <version>2.7.0</version>
+      <version>${GWT-Version}</version>
       <scope>provided</scope>
     </dependency>
   </dependencies>
